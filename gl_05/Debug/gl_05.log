@@ -1,0 +1,7 @@
+﻿  main.cpp
+D:\dev\GKOM\GKOM\gl_05\main.cpp(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\dev\GKOM\GKOM\gl_05\MeshController.h(19): warning C4715: 'MeshController::getVerticesArray': not all control paths return a value
+D:\dev\GKOM\GKOM\gl_05\MeshController.h(25): warning C4715: 'MeshController::getIndicesArray': not all control paths return a value
+  Generating code
+  Finished generating code
+  gl_05.vcxproj -> D:\dev\GKOM\GKOM\Debug\gl_05.exe
