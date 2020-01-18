@@ -6,6 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "EnumObjectType.h"
 #include "MeshController.h"
+#include "Camera.h"
 //#include "SolidMeshContoller.h"
 
 #include <iostream>
@@ -114,8 +115,11 @@ public:
 		glBindTexture(GL_TEXTURE_2D, texture0);
 		glUniform1i(glGetUniformLocation(programId, "Texture0"), 0);
 
+		//glm::mat4 projection;
+		//projection = glm::perspective(camera.GetZoom(), (GLfloat)screenWidth / (GLfloat)screenHeight, 0.1f, 100.0f);
+
 		//glm::mat4 view;
-		//view = 
+		//view = camera.GetViewMatrix();
 
 		GLint modelLoc = glGetUniformLocation(programId, "model");
 		GLint viewLoc = glGetUniformLocation(programId, "view");

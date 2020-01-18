@@ -44,7 +44,7 @@ int main()
 
 	try
 	{
-		GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "GKOM - OpenGL 05", nullptr, nullptr);
+		GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "GKOM - Windmill", nullptr, nullptr);
 		if (window == nullptr)
 			throw exception("GLFW window not created");
 		glfwMakeContextCurrent(window);
@@ -58,6 +58,9 @@ int main()
 
 		glViewport(0, 0, WIDTH, HEIGHT);
 		glEnable(GL_DEPTH_TEST);
+
+		glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+		glEnable(GL_DEPTH_TEST);
 		// Let's check what are maximum parameters counts
 		GLint nrAttributes;
 		glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
@@ -67,14 +70,13 @@ int main()
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		//TODO
-		//tu nadaje sie shadery oswietlenie etc, zostawaim zakomentowane, ale treba zrobic
+
 		// Build, compile and link shader program
-		ShaderProgram theProgram("gl_05.vert", "gl_05.frag");
+		ShaderProgram theShader("shader.vert", "shader.frag");
 
 		Object grass(grass, "grass.jpg", 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
 
-		int programId = theProgram.get_programID();
+		int programId = theShader.get_programID();
 
 		// main event loop
 		while (!glfwWindowShouldClose(window))
@@ -86,7 +88,10 @@ int main()
 			glfwPollEvents();
 			glClearColor(0.2f, 0.7f, 0.9f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			theProgram.Use();
+			theShader.Use();
+
+			glUniform3f(glGetUniformLocation(programId, "lightColor"), 1.0f, 1.0f, 1.0f);
+			glUniform3f(glGetUniformLocation(programId, "lightPos"), -2.0f, 4.0f, 3.0f);
 			grass.draw(programId, SCREEN_WIDTH, SCREEN_HEIGHT);
 			glfwSwapBuffers(window);
 		}
