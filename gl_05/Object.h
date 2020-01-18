@@ -6,6 +6,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "EnumObjectType.h"
 #include "MeshController.h"
+#include "Camera.h"
 //#include "SolidMeshContoller.h"
 
 #include <iostream>
@@ -114,8 +115,11 @@ public:
 		glBindTexture(GL_TEXTURE_2D, texture0);
 		glUniform1i(glGetUniformLocation(programId, "Texture0"), 0);
 
+		//glm::mat4 projection;
+		//projection = glm::perspective(camera.GetZoom(), (GLfloat)screenWidth / (GLfloat)screenHeight, 0.1f, 100.0f);
+
 		//glm::mat4 view;
-		//view = 
+		//view = camera.GetViewMatrix();
 
 		GLint modelLoc = glGetUniformLocation(programId, "model");
 		GLint viewLoc = glGetUniformLocation(programId, "view");
@@ -124,9 +128,38 @@ public:
 
 		glBindVertexArray(VAO);
 
-		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glm::mat4 model;
+		glm::mat4 translation;
+		glm::mat4 rotationX;
+		glm::mat4 rotationY;
+		glm::mat4 rotationZ;
+		glm::mat4 constRot;
+
+		translation = glm::translate(translation, glm::vec3(xPosition, yPosition, zPosition));
+		rotationX = glm::rotate(rotationX, glm::radians(xRotation), glm::vec3(1.0f, 0.0f, 0.0f));
+		rotationY = glm::rotate(rotationY, glm::radians(yRotation), glm::vec3(0.0f, 1.0f, 0.0f));
+		rotationZ = glm::rotate(rotationZ, glm::radians(zRotation), glm::vec3(0.0f, 0.0f, 1.0f));
+		constRot = glm::rotate(constRot, glm::radians(5.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		model = translation * rotationX * rotationY * rotationZ;
+
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawElements(GL_TRIANGLES, indicesCounter, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+	}
+	
+	void rotate(int progid, float anglePS, float FPS, RotationType type) {
+
+		if (type == VERTICAL) {
+			this->yRotation += (anglePS / FPS);
+			if (this->yRotation > 360.0f)
+				this->yRotation -= 360.0f;
+		}
+		else if (type == HORIZONTAL) {
+			this->zRotation += (anglePS / FPS);
+			if (this->zRotation > 360.0f)
+				this->zRotation -= 360.0f;
+		}
 	}
 };
  
