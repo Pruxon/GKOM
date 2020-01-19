@@ -89,11 +89,12 @@
     <ClCompile Include="shprogram.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader.frag" />
-    <None Include="shader.vert" />
+    <None Include="gl_05.frag" />
+    <None Include="gl_05.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EnumObjectType.h" />
+    <ClInclude Include="HardMeshCont.h" />
     <ClInclude Include="MeshController.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="shprogram.h" />
