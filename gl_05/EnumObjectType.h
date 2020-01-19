@@ -4,7 +4,7 @@ enum ObjectType {
 	grass
 };
 
-enum HardTypeofObject{
+enum HardTypeOfObject{
 	cone,
 	cylinder,
 	gear	
