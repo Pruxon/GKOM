@@ -1,14 +1,17 @@
 #pragma once
 
 enum ObjectType {
-	grass
+	grass,
+	windmill
 };
 
 enum HardTypeOfObject
 {
 	cone,
 	cylinder,
-	gear
+	gear,
+	coneCut,
+	backcylinder
 };
 
 enum RotationType

@@ -38,7 +38,6 @@ public:
 		glGenBuffers(1, &VBO);
 		glGenBuffers(1, &EBO);
 
-		// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
 		glBindVertexArray(VAO);
 
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -47,41 +46,41 @@ public:
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicesSize, indices, GL_STATIC_DRAW);
 
-		// Position attribute
+		// Position
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)0);
 		glEnableVertexAttribArray(0);
 
-		// Color attribute
+		// Color
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 		glEnableVertexAttribArray(1);
 
-		// TexCoord attribute
+		// TexCoord
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
 		glEnableVertexAttribArray(2);
 
-		// normal attribute
+		// normal
 		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(8 * sizeof(GLfloat)));
 		glEnableVertexAttribArray(3);
 
-		glBindBuffer(GL_ARRAY_BUFFER, 0); // Note that this is allowed, the call to glVertexAttribPointer registered VBO as the currently bound vertex buffer object so afterwards we can safely unbind
+		glBindBuffer(GL_ARRAY_BUFFER, 0); 
 
-		glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
+		glBindVertexArray(0); 
 
-		// --== TEXTURE == --
+		// TEXTURE
 
-		// prepare textures 
+		// prepare
 		GLuint texture;
-		glGenTextures(1, &texture); // All upcoming GL_TEXTURE_2D operations now have effect on our texture object
+		glGenTextures(1, &texture);
 
-		// Set our texture parameters
+		// texture parameters
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		// Set texture filtering
+		// texture filtering
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		// Load, create texture and generate mipmaps
+		// Load texture and generate mipmaps
 		cout << "Nazwa tekstury: " << textureName.c_str() << endl;
 		int width, height;
 		unsigned char* image = SOIL_load_image(textureName.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
@@ -124,7 +123,6 @@ public:
 		glGenBuffers(1, &VBO);
 		glGenBuffers(1, &EBO);
 
-		// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
 		glBindVertexArray(VAO);
 
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -133,39 +131,39 @@ public:
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicesSize, indices, GL_STATIC_DRAW);
 
-		// Position attribute
+		// Position
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)0);
 		glEnableVertexAttribArray(0);
 
-		// Color attribute
+		// Color
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 		glEnableVertexAttribArray(1);
 
-		// TexCoord attribute
+		// TexCoord 
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
 		glEnableVertexAttribArray(2);
 
-		// normal attribute
+		// normal 
 		glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(GLfloat), (GLvoid*)(8 * sizeof(GLfloat)));
 		glEnableVertexAttribArray(3);
 
-		glBindBuffer(GL_ARRAY_BUFFER, 0); // Note that this is allowed, the call to glVertexAttribPointer registered VBO as the currently bound vertex buffer object so afterwards we can safely unbind
+		glBindBuffer(GL_ARRAY_BUFFER, 0); 
 
-		glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
+		glBindVertexArray(0); 
 
 		// prepare textures 
 		GLuint texture;
-		glGenTextures(1, &texture); // All upcoming GL_TEXTURE_2D operations now have effect on our texture object
+		glGenTextures(1, &texture); 
 
-									// Set our texture parameters
+		// texture parameters
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		// Set texture filtering
+		// texture filtering
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		// Load, create texture and generate mipmaps
+		// Load texture and generate mipmaps
 		cout << "Nazwa tekstury: " << textureName.c_str() << endl;
 		int width, height;
 		unsigned char* image = SOIL_load_image(textureName.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
@@ -235,8 +233,8 @@ public:
 		glBindVertexArray(0);
 	}
 	
-	void rotate(int progid, float anglePS, float FPS, RotationType type) {
-
+	void rotate(int progid, float anglePS, float FPS, RotationType type) 
+	{
 		if (type == VERTICAL) {
 			this->yRotation += (anglePS / FPS);
 			if (this->yRotation > 360.0f)
