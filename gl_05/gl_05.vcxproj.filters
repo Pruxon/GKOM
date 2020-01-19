@@ -23,8 +23,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader.frag" />
-    <None Include="shader.vert" />
+    <None Include="gl_05.frag" />
+    <None Include="gl_05.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shprogram.h">
@@ -37,6 +37,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HardMeshCont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
