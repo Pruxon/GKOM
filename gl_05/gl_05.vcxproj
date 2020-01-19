@@ -89,18 +89,21 @@
     <ClCompile Include="shprogram.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="gl_05.frag" />
-    <None Include="gl_05.vert" />
+    <None Include="shader.frag" />
+    <None Include="shader.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EnumObjectType.h" />
     <ClInclude Include="HardMeshCont.h" />
     <ClInclude Include="MeshController.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectSet.h" />
     <ClInclude Include="shprogram.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\STUDIA\wood1.png" />
     <Image Include="grass.jpg" />
+    <Image Include="leaves.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
