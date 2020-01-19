@@ -93,6 +93,11 @@ int main()
 		ShaderProgram theShader("shader.vert", "shader.frag");
 
 		Object grass(grass, "grass.jpg", 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+
+		Tree tree1(0.9f, 1.8f, 2.2f, 0.0f, 0.1f, 0.0f, 0.0f, 0.0f);
+		Tree tree2(1.2f, 2.9f, -1.6f, 0.0f, -2.2f, 0.0f, 0.0f, 0.0f);
+		Tree tree3(0.6f, 2.2f, -2.7f, 0.0f, -0.8f, 0.0f, 0.0f, 0.0f);
+
 		Fence fence(1.5f, 0.5f, -0.8f, 0.0f, 2.0f, 0.0f, 0.0f, 90.0f);
 
 		int programId = theShader.get_programID();
@@ -113,6 +118,10 @@ int main()
 			glUniform3f(glGetUniformLocation(programId, "lightColor"), 1.0f, 1.0f, 1.0f);
 			glUniform3f(glGetUniformLocation(programId, "lightPos"), -2.0f, 4.0f, 3.0f);
 			grass.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+			tree1.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
+			tree2.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
+			tree3.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
 			fence.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
 			glfwSwapBuffers(window);
 		}
