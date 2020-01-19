@@ -1,5 +1,7 @@
 #pragma once
 
+#pragma once
+
 
 #include <GL/glew.h>
 #include <SOIL.h>
@@ -20,6 +22,7 @@ public:
 		switch (type)
 		{
 		case cylinder:		return cylinderVertices(numberOfFaces, radius, height, size);
+		case cone:			return coneVertices(numberOfFaces, radius, height, size);
 		default:			break;
 		}
 	}
@@ -28,6 +31,7 @@ public:
 		switch (type)
 		{
 		case cylinder:			return cylinderIndices(numberOfFaces, size);
+		case cone:				return coneIndices(numberOfFaces, size);
 		default:				break;
 		}
 	}
@@ -187,6 +191,87 @@ private:
 
 
 		size = numberOfFaces * 12 * sizeof(GLuint);
+		return indices;
+	}
+
+	GLfloat* coneVertices(int numberOfFaces, GLfloat radius, GLfloat height, unsigned int& size) {
+		static GLfloat* vertices = new GLfloat[(numberOfFaces + 2) * 11];
+
+		for (int i = 0; i < (numberOfFaces + 2) * 11; i++) {
+			vertices[i] = 0.0f;
+		}
+		//points 0 and 1
+		vertices[1] = height;
+		//texture
+		vertices[6] = 0.5f;
+		vertices[7] = 1.0f;
+		//normal
+		vertices[9] = 1.0f;
+
+		vertices[17] = 0.5f;
+		vertices[18] = 1.0f;
+		//normal
+		vertices[20] = -1.0f;
+
+		//point 2
+		vertices[22] = radius;
+
+		//obracanie - macierz
+		glm::mat4 rotationZ;
+		rotationZ = glm::rotate(rotationZ, glm::radians(360.0f / numberOfFaces), glm::vec3(0.0f, 1.0f, 0.0f));
+
+		//wektor z 2. wierzcho³kiem
+		glm::vec4 currentV = glm::vec4(radius, 0.0f, 0.0f, 1.0f);
+		for (int i = 0; i < numberOfFaces - 1; i++) {
+			currentV = rotationZ * currentV;
+
+			vertices[33 + i * 11] = currentV[0];
+			vertices[34 + i * 11] = currentV[1];
+			vertices[35 + i * 11] = currentV[2];
+
+			//normals
+			vertices[41 + i * 11] = currentV[0];
+			//vertices[42 + i * 11] = -0.5f;
+			vertices[43 + i * 11] = currentV[2];
+
+			//texture
+			if (i % 2 == 0)
+				vertices[39 + i * 11] = (1.0f * 6) / numberOfFaces;
+		}
+
+
+		size = (numberOfFaces + 2) * 11 * sizeof(GLfloat);
+		return vertices;
+	}
+
+	GLuint* coneIndices(int numberOfFaces, unsigned int& size) {
+		static GLuint* indices = new GLuint[numberOfFaces * 2 * 3];
+
+		GLuint face = 2;
+		indices[0] = numberOfFaces + 1;
+		indices[1] = 0;
+		indices[2] = 2;
+
+		for (int i = 3; i < (numberOfFaces) * 3; i += 3) {
+			indices[i] = face;
+			indices[i + 1] = 0;
+			face++;
+			indices[i + 2] = face;
+		}
+
+		face = 2;
+		indices[(numberOfFaces) * 3] = numberOfFaces + 1;
+		indices[(numberOfFaces) * 3 + 1] = 1;
+		indices[(numberOfFaces) * 3 + 2] = 2;
+
+		for (int i = (numberOfFaces) * 3 + 3; i < (numberOfFaces) * 3 * 2; i += 3) {
+			indices[i] = face;
+			indices[i + 1] = 1;
+			face++;
+			indices[i + 2] = face;
+		}
+
+		size = numberOfFaces * 6 * sizeof(GLuint);
 		return indices;
 	}
 };

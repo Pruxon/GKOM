@@ -4,8 +4,16 @@ enum ObjectType {
 	grass
 };
 
-enum HardTypeOfObject{
+enum HardTypeOfObject
+{
 	cone,
 	cylinder,
-	gear	
+	gear
 };
+
+enum RotationType
+{
+	VERTICAL,
+	HORIZONTAL
+};
+#pragma once
