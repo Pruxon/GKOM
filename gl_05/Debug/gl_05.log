@@ -1,20 +1,19 @@
 ﻿  main.cpp
-D:\dev\GKOM\GKOM\gl_05\ObjectSet.h(22,78): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\ObjectSet.h(45,65): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\ObjectSet.h(45,52): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\ObjectSet.h(46,82): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(109,25): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(190,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(191,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(195,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(196,18): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(198,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(199,10): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\main.cpp(206,28): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\MeshController.h(20): warning C4715: 'MeshController::getVerticesArray': not all control paths return a value
-D:\dev\GKOM\GKOM\gl_05\MeshController.h(27): warning C4715: 'MeshController::getIndicesArray': not all control paths return a value
-D:\dev\GKOM\GKOM\gl_05\HardMeshCont.h(37): warning C4715: 'HardMeshCont::getIndicesArray': not all control paths return a value
-D:\dev\GKOM\GKOM\gl_05\HardMeshCont.h(28): warning C4715: 'HardMeshCont::getVerticesArray': not all control paths return a value
-  Generating code
-  Finished generating code
-  gl_05.vcxproj -> D:\dev\GKOM\GKOM\Debug\gl_05.exe
+C:\Users\Mario\Desktop\GKOM-master\gl_05\objectSet.h(22,78): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\objectSet.h(45,68): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\objectSet.h(45,53): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\objectSet.h(46,84): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(100,25): warning C4244: "inicjowanie": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(201,11): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(202,11): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(205,18): warning C4244: "inicjowanie": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(206,18): warning C4244: "inicjowanie": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(208,10): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(209,10): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\MeshController.h(29): warning C4715: "MeshController::getIndicesArray”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Mario\Desktop\GKOM-master\gl_05\MeshController.h(21): warning C4715: "MeshController::getVerticesArray”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Mario\Desktop\GKOM-master\gl_05\HardMeshCont.h(27): warning C4715: "HardMeshCont::getVerticesArray”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Mario\Desktop\GKOM-master\gl_05\HardMeshCont.h(39): warning C4715: "HardMeshCont::getIndicesArray”: niewszystkie ścieżki kodu zwracają wartość
+  Trwa generowanie kodu
+  Zakończono generowanie kodu
+  gl_05.vcxproj -> C:\Users\Mario\Desktop\GKOM-master\Debug\gl_05.exe

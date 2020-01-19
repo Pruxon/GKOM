@@ -23,8 +23,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader.frag" />
-    <None Include="shader.vert" />
+    <None Include="gl_05.frag" />
+    <None Include="gl_05.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shprogram.h">
@@ -42,18 +42,12 @@
     <ClInclude Include="HardMeshCont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectSet.h">
+    <ClInclude Include="objectSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="grass.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\..\..\STUDIA\wood1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="leaves.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
