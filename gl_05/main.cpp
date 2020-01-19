@@ -16,6 +16,7 @@
 #include "MeshController.h"
 #include "Object.h"
 #include "Camera.h"
+#include "ObjectSet.h"
 
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
@@ -67,6 +68,8 @@ int main()
 		glfwSetKeyCallback(window, KeyCallback);
 		glfwSetCursorPosCallback(window, MouseCallback);
 
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
 		glewExperimental = GL_TRUE;
 		if (glewInit() != GLEW_OK)
 			throw exception("GLEW Initialization failed");
@@ -90,6 +93,7 @@ int main()
 		ShaderProgram theShader("shader.vert", "shader.frag");
 
 		Object grass(grass, "grass.jpg", 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+		Fence fence(1.5f, 0.5f, -0.8f, 0.0f, 2.0f, 0.0f, 0.0f, 90.0f);
 
 		int programId = theShader.get_programID();
 
@@ -109,6 +113,7 @@ int main()
 			glUniform3f(glGetUniformLocation(programId, "lightColor"), 1.0f, 1.0f, 1.0f);
 			glUniform3f(glGetUniformLocation(programId, "lightPos"), -2.0f, 4.0f, 3.0f);
 			grass.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
+			fence.draw(programId, camera, SCREEN_WIDTH, SCREEN_HEIGHT);
 			glfwSwapBuffers(window);
 		}
 	
