@@ -9,3 +9,4 @@ enum RotationType
 	VERTICAL,
 	HORIZONTAL
 };
+#pragma once

@@ -1,8 +1,14 @@
 ﻿  main.cpp
-D:\dev\GKOM\GKOM\gl_05\main.cpp(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\dev\GKOM\GKOM\gl_05\main.cpp(85,25): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-D:\dev\GKOM\GKOM\gl_05\MeshController.h(25): warning C4715: 'MeshController::getIndicesArray': not all control paths return a value
-D:\dev\GKOM\GKOM\gl_05\MeshController.h(19): warning C4715: 'MeshController::getVerticesArray': not all control paths return a value
-  Generating code
-  Finished generating code
-  gl_05.vcxproj -> D:\dev\GKOM\GKOM\Debug\gl_05.exe
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(100,25): warning C4244: "inicjowanie": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(176,11): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(177,11): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(181,18): warning C4244: "inicjowanie": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(182,18): warning C4244: "inicjowanie": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(184,10): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(185,10): warning C4244: "=": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\main.cpp(192,28): warning C4244: "argument": konwersja z "double" do "GLfloat", możliwa utrata danych
+C:\Users\Mario\Desktop\GKOM-master\gl_05\MeshController.h(20): warning C4715: "MeshController::getVerticesArray”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Mario\Desktop\GKOM-master\gl_05\MeshController.h(27): warning C4715: "MeshController::getIndicesArray”: niewszystkie ścieżki kodu zwracają wartość
+  Trwa generowanie kodu
+  Zakończono generowanie kodu
+  gl_05.vcxproj -> C:\Users\Mario\Desktop\GKOM-master\Debug\gl_05.exe

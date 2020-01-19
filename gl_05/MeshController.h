@@ -15,12 +15,14 @@ public:
 	GLfloat* getVerticesArray(ObjectType type, unsigned int &size) {
 		switch (type) {
 		case grass: return grassVertices(size);
+		default:				break;
 		}
 	}
 
 	GLuint* getIndicesArray(ObjectType type, unsigned int& size) {
 		switch (type) {
 		case grass: return grassIndices(size);
+		default:				break;
 		}
 	}
 
@@ -28,12 +30,12 @@ private:
 	GLfloat* grassVertices(unsigned int& size) {
 		static GLfloat vertices[] = {
 			// coordinates			// color				// texture			//normals
-			 6.0f, 0.0f,  6.0f,		1.0f, 0.0f, 0.0f,		20.0f,  0.0f,	0.0f, 1.0f, 0.0f,
+			 6.0f, 0.0f,  6.0f,		1.0f, 0.0f, 0.0f,		0.0f,  2.0f,	0.0f, 1.0f, 0.0f,
 			-6.0f, 0.0f,  6.0f,		0.0f, 1.0f, 0.0f,		0.0f,  0.0f,	0.0f, 1.0f, 0.0f,
-			-6.0f, 0.0f, -6.0f,		0.0f, 0.0f, 1.0f,		0.0f,  20.0f,	0.0f, 1.0f, 0.0f,
-			 6.0f, 0.0f, -6.0f,		1.0f, 0.0f, 1.0f,		20.0f, 20.0f,	0.0f, 1.0f, 0.0f
+			-6.0f, 0.0f, -6.0f,		0.0f, 0.0f, 1.0f,		2.0f,  0.0f,	0.0f, 1.0f, 0.0f,
+			 6.0f, 0.0f, -6.0f,		1.0f, 0.0f, 1.0f,		2.0f,  2.0f,	0.0f, 1.0f, 0.0f
 		};
-
+		cout << "kutas";
 		size = sizeof(vertices);
 		return vertices;
 	}
@@ -43,6 +45,7 @@ private:
 			0, 1, 2,
 			0, 2, 3
 		};
+		cout << "pe";
 		size = sizeof(indices);
 		return indices;
 	}

@@ -15,7 +15,8 @@ using namespace std;
 
 class Object {
 public:
-	GLuint texture0, VBO, EBO, VAO, indicesCounter;
+	GLuint texture0; 
+	GLuint VBO, EBO, VAO, indicesCounter;
 	GLfloat xPosition, yPosition, zPosition;
 	GLfloat xRotation, yRotation, zRotation;
 
@@ -110,21 +111,23 @@ public:
 		glDeleteBuffers(1, &EBO);
 	}
 
-	void draw(int programId, int screenWidth, int screenHeight) {
+	void draw(int programId, Camera camera, int screenWidth, int screenHeight) {
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture0);
 		glUniform1i(glGetUniformLocation(programId, "Texture0"), 0);
 
-		//glm::mat4 projection;
-		//projection = glm::perspective(camera.GetZoom(), (GLfloat)screenWidth / (GLfloat)screenHeight, 0.1f, 100.0f);
+		glm::mat4 projection;
+		projection = glm::perspective(camera.GetZoom(), (GLfloat)screenWidth / (GLfloat)screenHeight, 0.1f, 100.0f);
 
-		//glm::mat4 view;
-		//view = camera.GetViewMatrix();
+		glm::mat4 view;
+		view = camera.GetViewMatrix();
 
 		GLint modelLoc = glGetUniformLocation(programId, "model");
 		GLint viewLoc = glGetUniformLocation(programId, "view");
 		GLint projLoc = glGetUniformLocation(programId, "projection");
 
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
 		glBindVertexArray(VAO);
 
